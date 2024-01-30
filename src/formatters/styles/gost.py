@@ -128,7 +128,7 @@ class GOSTDissertation(BaseCitationStyle):
             speciality_code=self.data.speciality_code,
             city=self.data.city,
             year=self.data.year,
-            pages=self.data.pages
+            pages=self.data.pages,
         )
 
 
@@ -154,7 +154,7 @@ class GOSTJournalArticle(BaseCitationStyle):
             journal=self.data.journal,
             year=self.data.year,
             volume=self.data.volume,
-            pages=self.data.volume
+            pages=self.data.pages,
         )
 
 
