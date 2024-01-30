@@ -3,8 +3,20 @@
 """
 
 from formatters.base import BaseCitationFormatter
-from formatters.models import BookModel, InternetResourceModel, ArticlesCollectionModel, DissertationModel, JournalArticleModel
-from formatters.styles.apa import APABook, APAInternetResource, APACollectionArticle, APADissertation, APAJournalArticle
+from formatters.models import (
+    BookModel,
+    InternetResourceModel,
+    ArticlesCollectionModel,
+    DissertationModel,
+    JournalArticleModel,
+)
+from formatters.styles.apa import (
+    APABook,
+    APAInternetResource,
+    APACollectionArticle,
+    APADissertation,
+    APAJournalArticle,
+)
 
 
 class TestAPA:
@@ -72,12 +84,12 @@ class TestAPA:
         model = APADissertation(dissertation_fixture)
 
         assert (
-                model.formatted
-                == "Иванов И.М. (2020) Наука как искусство, дис. [д-р. / канд. экон. 01.01.01] СПб., 199 с."
+            model.formatted
+            == "Иванов И.М. (2020) Наука как искусство, дис. [д-р. / канд. экон. 01.01.01] СПб., 199 с."
         )
 
     def test_journal_article(
-            self, journal_article_fixture: JournalArticleModel
+        self, journal_article_fixture: JournalArticleModel
     ) -> None:
         """
         Тестирование форматирования статьи из журнала.
@@ -89,8 +101,8 @@ class TestAPA:
         model = APAJournalArticle(journal_article_fixture)
 
         assert (
-                model.formatted
-                == "Иванов И.М., Петров С.Н. (2020) Наука как искусство. Научный журнал, 1 25-30 с."
+            model.formatted
+            == "Иванов И.М., Петров С.Н. (2020) Наука как искусство. Научный журнал, 1 25-30 с."
         )
 
     def test_citation_formatter(

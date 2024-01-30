@@ -5,8 +5,8 @@ from enum import Enum, unique
 
 import click
 
-from formatters.styles.gost import GOSTCitationFormatter
 from formatters.styles.apa import APACitationFormatter
+from formatters.styles.gost import GOSTCitationFormatter
 from logger import get_logger
 from readers.reader import SourcesReader
 from renderer import Renderer
@@ -79,7 +79,7 @@ def process_input(
     models = SourcesReader(path_input).read()
     formatter_mapping = {
         CitationEnum.GOST.name: GOSTCitationFormatter,
-        CitationEnum.APA.name: APACitationFormatter
+        CitationEnum.APA.name: APACitationFormatter,
     }
     if citation not in formatter_mapping:
         logger.error("Неподдерживаемый стиль")

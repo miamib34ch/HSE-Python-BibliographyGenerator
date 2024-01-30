@@ -5,7 +5,13 @@ from string import Template
 
 from pydantic import BaseModel
 
-from formatters.models import BookModel, InternetResourceModel, ArticlesCollectionModel, DissertationModel, JournalArticleModel
+from formatters.models import (
+    BookModel,
+    InternetResourceModel,
+    ArticlesCollectionModel,
+    DissertationModel,
+    JournalArticleModel,
+)
 from formatters.styles.base import BaseCitationStyle
 from logger import get_logger
 
@@ -59,9 +65,7 @@ class APAInternetResource(BaseCitationStyle):
 
     @property
     def template(self) -> Template:
-        return Template(
-            "$website ($access_date) $article $link"
-        )
+        return Template("$website ($access_date) $article $link")
 
     def substitute(self) -> str:
 
@@ -141,9 +145,7 @@ class APAJournalArticle(BaseCitationStyle):
 
     @property
     def template(self) -> Template:
-        return Template(
-            "$authors ($year) $title. $journal, $volume $pages с."
-        )
+        return Template("$authors ($year) $title. $journal, $volume $pages с.")
 
     def substitute(self) -> str:
 

@@ -5,7 +5,13 @@ from string import Template
 
 from pydantic import BaseModel
 
-from formatters.models import BookModel, InternetResourceModel, ArticlesCollectionModel, DissertationModel, JournalArticleModel
+from formatters.models import (
+    BookModel,
+    InternetResourceModel,
+    ArticlesCollectionModel,
+    DissertationModel,
+    JournalArticleModel,
+)
 from formatters.styles.base import BaseCitationStyle
 from logger import get_logger
 
@@ -136,13 +142,12 @@ class GOSTJournalArticle(BaseCitationStyle):
     """
     Форматирование для статьи из журнала.
     """
+
     data: JournalArticleModel
 
     @property
     def template(self) -> Template:
-        return Template(
-            "$authors $title // $journal. $year. № $volume. С. $pages."
-        )
+        return Template("$authors $title // $journal. $year. № $volume. С. $pages.")
 
     def substitute(self) -> str:
 
